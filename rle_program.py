@@ -39,7 +39,12 @@ def count_runs(flat_data):
 # Returns encoding (in RLE) of the raw data passed in; used to generate RLE representation of a data. 
 # Ex: encode_rle([15, 15, 15, 4, 4, 4, 4, 4, 4]) yields list [3, 15, 6, 4]. 
 def encode_rle(flat_data):
-    pass
+    rle_data = []
+    current_run = {"value": None, "length": 0 }
+    for pixel in flat_data:
+        pass # some logic to check the current pixel against the previous
+        # then count the shit somehow
+
 
 # Returns decompressed size RLE data; used to generate flat data from RLE encoding. (Counterpart to #2) 
 # Ex: get_decoded_length([3, 15, 6, 4]) yields integer 9. 
