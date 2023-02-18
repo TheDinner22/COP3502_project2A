@@ -4,7 +4,13 @@
 
 # reqs:
 # standalone menu
-# menu option one, two and six
+# menu options one, two, and six
+# main shoud:
+# 1. Display welcome message
+# 2. Display color test ( ConsoleGfx.test_rainbow )
+# 3. Display the menu
+# 4. Prompt for input
+
 
 # Translates data (RLE or raw) a hexadecimal string (without delimiters). This method can also aid debugging. 
 # Ex: to_hex_string([3, 15, 6, 4]) yields string "3f64". 
