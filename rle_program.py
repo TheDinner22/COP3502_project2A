@@ -2,6 +2,9 @@
 # Project two part A
 # 02/15/23
 
+# import the ConsoleGfx class
+from console_gfx import ConsoleGfx 
+
 # reqs:
 # standalone menu
 # menu options one, two, and six
@@ -10,7 +13,6 @@
 # 2. Display color test ( ConsoleGfx.test_rainbow )
 # 3. Display the menu
 # 4. Prompt for input
-
 
 # Translates data (RLE or raw) a hexadecimal string (without delimiters). This method can also aid debugging. 
 # Ex: to_hex_string([3, 15, 6, 4]) yields string "3f64". 
@@ -124,12 +126,29 @@ def decimal_to_hex(number):
     # reverse the order and return
     return hex[::-1]
 
+# easy error messages
 def error(msg):
     raise Exception(msg)
 
-def main():
-    pass
+# print the welcome message
+def welcome():
+    print("Welcome to the RLE image encoder!")
 
+def main():
+    # Display welcome message
+    welcome()
+
+    # Display color test ( ConsoleGfx.test_rainbow )
+    ConsoleGfx.display_image(ConsoleGfx.test_rainbow)
+
+    # Display the menu
+
+    # Prompt for input
+
+
+# the methods I am required to implement have
+# sample inputs and outputs
+# this function makes sure tha the functions behave as expected
 def tests():
     assert to_hex_string([3, 15, 6, 4]) == "3f64"
     assert count_runs([15, 15, 15, 4, 4, 4, 4, 4, 4]) == 2
@@ -137,3 +156,4 @@ def tests():
 
 if __name__ == "__main__":
     tests()
+    main()
