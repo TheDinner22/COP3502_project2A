@@ -135,6 +135,7 @@ def welcome():
     print("Welcome to the RLE image encoder!")
 
 def menu():
+    print("")
     print("RLE Menu")
     print("--------")
     print("0. Exit")
@@ -172,57 +173,58 @@ def main():
     ConsoleGfx.display_image(ConsoleGfx.test_rainbow)
     print("")
 
-    # Display the menu
-    menu()
+    while True:
+        # Display the menu
+        menu()
 
-    # Prompt for input
-    # TODO should this loop?
-    user_selection = menu_input()
+        # Prompt for input
+        # TODO should this loop?
+        user_selection = menu_input()
 
-    # 0. Exit
-    if user_selection == 0:
-        return
+        # 0. Exit
+        if user_selection == 0:
+            return
 
-    # 1. Load File 
-    elif user_selection == 1:
-        # get the filename from the user
-        filename = input("Enter name of file to load: ")
+        # 1. Load File 
+        elif user_selection == 1:
+            # get the filename from the user
+            filename = input("Enter name of file to load: ")
 
-        # load the file
-        current_image = ConsoleGfx.load_file(filename)
+            # load the file
+            current_image = ConsoleGfx.load_file(filename)
 
-    # 2. Load Test Image 
-    elif user_selection == 2:
-        current_image = ConsoleGfx.test_image
-        print("Test image data loaded.")
+        # 2. Load Test Image 
+        elif user_selection == 2:
+            current_image = ConsoleGfx.test_image
+            print("Test image data loaded.")
 
-    # 3. Read RLE String
-    elif user_selection == 3:
-        pass
+        # 3. Read RLE String
+        elif user_selection == 3:
+            pass
 
-    # 4. Read RLE Hex String
-    elif user_selection == 4:
-        pass
+        # 4. Read RLE Hex String
+        elif user_selection == 4:
+            pass
 
-    # 5. Read Data Hex String
-    elif user_selection == 5:
-        pass
+        # 5. Read Data Hex String
+        elif user_selection == 5:
+            pass
 
-    # 6. Display Image 
-    elif user_selection == 6:
-        ConsoleGfx.display_image(current_image)
+        # 6. Display Image 
+        elif user_selection == 6:
+            ConsoleGfx.display_image(current_image)
 
-    # 7. Display RLE String
-    elif user_selection == 7:
-        pass
+        # 7. Display RLE String
+        elif user_selection == 7:
+            pass
 
-    # 8. Display Hex RLE Data
-    elif user_selection == 8:
-        pass
+        # 8. Display Hex RLE Data
+        elif user_selection == 8:
+            pass
 
-    # 9. Display Hex Flat Data
-    elif user_selection == 9:
-        pass
+        # 9. Display Hex Flat Data
+        elif user_selection == 9:
+            pass
 
 # the methods I am required to implement have
 # sample inputs and outputs
