@@ -134,14 +134,33 @@ def error(msg):
 def welcome():
     print("Welcome to the RLE image encoder!")
 
+def menu():
+    print("RLE Menu")
+    print("--------")
+    print("0. Exit")
+    print("1. Load File")
+    print("2. Load Test Image")
+    print("3. Read RLE String")
+    print("4. Read RLE Hex String")
+    print("5. Read Data Hex String")
+    print("6. Display Image")
+    print("7. Display RLE String")
+    print("8. Display Hex RLE Data")
+    print("9. Display Hex Flat Data")
+    print("")
+
 def main():
     # Display welcome message
     welcome()
+    print("")
 
     # Display color test ( ConsoleGfx.test_rainbow )
+    print("Displaying Spectrum Image:")
     ConsoleGfx.display_image(ConsoleGfx.test_rainbow)
+    print("")
 
     # Display the menu
+    menu()
 
     # Prompt for input
 
