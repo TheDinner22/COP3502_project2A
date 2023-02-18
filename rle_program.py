@@ -39,12 +39,28 @@ def count_runs(flat_data):
 # Returns encoding (in RLE) of the raw data passed in; used to generate RLE representation of a data. 
 # Ex: encode_rle([15, 15, 15, 4, 4, 4, 4, 4, 4]) yields list [3, 15, 6, 4]. 
 def encode_rle(flat_data):
-    rle_data = []
-    current_run = {"value": None, "length": 0 }
-    for pixel in flat_data:
-        pass # some logic to check the current pixel against the previous
-        # then count the shit somehow
+    # if flat_data is empty, return an empty list
+    if len(flat_data) == 0:
+        return []
 
+    rle_data = []
+    current_run = {"value": flat_data[0], "length": 0 }
+    for pixel in flat_data:
+        # is this pixel part of the current run? (or is this the first iteration)
+        if pixel == current_run["value"] or current_run["value"] == None:
+            # increment the length of this run
+            current_run["length"] += 1
+        else:
+            # if it's not, add the current run to rle_data
+            rle_data.extend([current_run["length"], current_run["value"]])
+            # and reset current_run
+            current_run = {"value": pixel, "length": 1 }
+
+    # the for loop has not added the last run to the rle_data
+    # so I do that here
+    rle_data.extend([current_run["length"], current_run["value"]])
+
+    return rle_data
 
 # Returns decompressed size RLE data; used to generate flat data from RLE encoding. (Counterpart to #2) 
 # Ex: get_decoded_length([3, 15, 6, 4]) yields integer 9. 
@@ -102,12 +118,16 @@ def decimal_to_hex(number):
     # reverse the order and return
     return hex[::-1]
 
+def error(msg):
+    raise Exception(msg)
+
 def main():
     pass
 
 def tests():
     assert to_hex_string([3, 15, 6, 4]) == "3f64"
     assert count_runs([15, 15, 15, 4, 4, 4, 4, 4, 4]) == 2
+    assert encode_rle([15, 15, 15, 4, 4, 4, 4, 4, 4]) == [3, 15, 6, 4]
 
 if __name__ == "__main__":
     tests()
