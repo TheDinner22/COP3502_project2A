@@ -160,6 +160,9 @@ def menu_input():
     return user_input
 
 def main():
+    # stores the currrent loaded image
+    current_image = None
+
     # Display welcome message
     welcome()
     print("")
@@ -180,13 +183,18 @@ def main():
     if user_selection == 0:
         return
 
-    # 1. Load File
+    # 1. Load File 
     elif user_selection == 1:
-        pass
+        # get the filename from the user
+        filename = input("Enter name of file to load: ")
 
-    # 2. Load Test Image
+        # load the file
+        current_image = ConsoleGfx.load_file(filename)
+
+    # 2. Load Test Image 
     elif user_selection == 2:
-        pass
+        current_image = ConsoleGfx.test_image
+        print("Test image data loaded.")
 
     # 3. Read RLE String
     elif user_selection == 3:
@@ -200,9 +208,9 @@ def main():
     elif user_selection == 5:
         pass
 
-    # 6. Display Image
+    # 6. Display Image 
     elif user_selection == 6:
-        pass
+        ConsoleGfx.display_image(current_image)
 
     # 7. Display RLE String
     elif user_selection == 7:
