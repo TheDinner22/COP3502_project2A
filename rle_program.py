@@ -13,6 +13,7 @@ from console_gfx import ConsoleGfx
 # 2. Display color test ( ConsoleGfx.test_rainbow )
 # 3. Display the menu
 # 4. Prompt for input
+# i also implemented some of the methods that are required
 
 # Translates data (RLE or raw) a hexadecimal string (without delimiters). This method can also aid debugging. 
 # Ex: to_hex_string([3, 15, 6, 4]) yields string "3f64". 
@@ -97,7 +98,7 @@ def to_rle_string(rle_data):
 def string_to_rle(rle_string):
     pass
 
-# code from lab4
+# I copied this code from my lab4 code
 #
 # convert a decimal number to hex
 # using acsii MAGIC!
