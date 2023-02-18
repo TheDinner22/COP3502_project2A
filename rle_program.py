@@ -149,6 +149,16 @@ def menu():
     print("9. Display Hex Flat Data")
     print("")
 
+def menu_input():
+    user_input = int(input("Select a Menu Option: "))
+
+    # make sure the input is valid and if its not,
+    # crash
+    if user_input < 0 or user_input > 9:
+        error(f"invalid menu input! GOT: {user_input}")
+
+    return user_input
+
 def main():
     # Display welcome message
     welcome()
@@ -163,7 +173,48 @@ def main():
     menu()
 
     # Prompt for input
+    # TODO should this loop?
+    user_selection = menu_input()
 
+    # 0. Exit
+    if user_selection == 0:
+        return
+
+    # 1. Load File
+    elif user_selection == 1:
+        pass
+
+    # 2. Load Test Image
+    elif user_selection == 2:
+        pass
+
+    # 3. Read RLE String
+    elif user_selection == 3:
+        pass
+
+    # 4. Read RLE Hex String
+    elif user_selection == 4:
+        pass
+
+    # 5. Read Data Hex String
+    elif user_selection == 5:
+        pass
+
+    # 6. Display Image
+    elif user_selection == 6:
+        pass
+
+    # 7. Display RLE String
+    elif user_selection == 7:
+        pass
+
+    # 8. Display Hex RLE Data
+    elif user_selection == 8:
+        pass
+
+    # 9. Display Hex Flat Data
+    elif user_selection == 9:
+        pass
 
 # the methods I am required to implement have
 # sample inputs and outputs
