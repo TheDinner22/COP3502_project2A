@@ -1,11 +1,11 @@
 # Joe Goodman
-# Project two part A
+# Project two part B
 # 02/15/23
 
 # import the ConsoleGfx class
 from console_gfx import ConsoleGfx 
 
-# reqs:
+# reqs part A:
 # standalone menu
 # menu options one, two, and six
 # main shoud:
@@ -14,6 +14,15 @@ from console_gfx import ConsoleGfx
 # 3. Display the menu
 # 4. Prompt for input
 # i also implemented some of the methods that are required
+
+# reqs part B:
+# impl these six methods:
+# to_hex_string(data) 
+# count_runs(flat_data) 
+# encode_rle(flat_data) 
+# get_decoded_length(rle_data) 
+# decode_rle(rle_data) 
+# string_to_data(data_string) 
 
 # Translates data (RLE or raw) a hexadecimal string (without delimiters). This method can also aid debugging. 
 # Ex: to_hex_string([3, 15, 6, 4]) yields string "3f64". 
