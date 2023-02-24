@@ -41,6 +41,10 @@ def to_hex_string(data):
 # Returns number of runs of data in an image data set; double this result for length of encoded (RLE) list. 
 # Ex: count_runs([15, 15, 15, 4, 4, 4, 4, 4, 4]) yields integer 2. 
 # each item in falt_data represents a pixel on an image, the items value represents the pixel's color
+#
+# so there is an issue where there is a "longest possible run"
+# hex encoded rle delegates 1 char to the length and 1 char to the encoded value
+# if flat_data were 10000 1's, the number of runs would not be 1!
 def count_runs(flat_data):
     # iterate over each pixel and compare its color to the previous pixel's
     # color
@@ -288,6 +292,7 @@ def main():
 # sample inputs and outputs
 # this function makes sure tha the functions behave as expected
 def tests():
+    # tests from the comments provided in the pdf
     assert to_hex_string([3, 15, 6, 4]) == "3f64"
     assert count_runs([15, 15, 15, 4, 4, 4, 4, 4, 4]) == 2
     assert encode_rle([15, 15, 15, 4, 4, 4, 4, 4, 4]) == [3, 15, 6, 4]
@@ -295,6 +300,11 @@ def tests():
     assert get_decoded_length([7, 15, 7, 4]) == 14
     assert decode_rle([3, 15, 6, 4]) == [15, 15, 15, 4, 4, 4, 4, 4, 4]
     assert string_to_data ("3f64") == [3, 15, 6, 4]
+
+    # tests from zybooks
+    assert count_runs([1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]) == 25
+    assert count_runs([4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8,7 ]) == 6
+
 
 if __name__ == "__main__":
     tests()
