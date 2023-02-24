@@ -31,9 +31,28 @@ def to_hex_string(data):
     # TODO can I assume that every item in data is <=15?
     hex = ""
 
+    decimal_hex_map = {
+        0: "0",
+        1: "1",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+        6: "6",
+        7: "7",
+        8: "8",
+        9: "9",
+        10: "A",
+        11: "B",
+        12: "C",
+        13: "D",
+        14: "E",
+        15: "F",
+    }
+
     # map over every item, converting the decimal to hex
     for item in data:
-        hex += decimal_to_hex(item)
+        hex += decimal_hex_map[item]
 
     # example wants lowercase so that is what we return
     return hex.lower()
@@ -160,6 +179,7 @@ def string_to_rle(rle_string):
     pass
 
 # I copied this code from my lab4 code
+# TODO delete this code?
 #
 # convert a decimal number to hex
 # using acsii MAGIC!
@@ -198,6 +218,7 @@ def hex_char_to_decimal(hex_char):
     hex_char = hex_char.upper()
 
     hex_decimal_map = {
+        "0": 0,
         "1": 1,
         "2": 2,
         "3": 3,
