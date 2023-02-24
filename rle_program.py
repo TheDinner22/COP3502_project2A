@@ -83,7 +83,8 @@ def encode_rle(flat_data):
 # Returns decompressed size RLE data; used to generate flat data from RLE encoding. (Counterpart to #2) 
 # Ex: get_decoded_length([3, 15, 6, 4]) yields integer 9. 
 def get_decoded_length(rle_data):
-    pass
+    # sum every other element in rle data
+    return sum(rle_data[::2])
 
 # Returns the decoded data set from RLE encoded data. This decompresses RLE data for use. (Inverse of #3) 
 # Ex: decode_rle([3, 15, 6, 4]) yields list [15, 15, 15, 4, 4, 4, 4, 4, 4, 4]. 
@@ -243,6 +244,8 @@ def tests():
     assert to_hex_string([3, 15, 6, 4]) == "3f64"
     assert count_runs([15, 15, 15, 4, 4, 4, 4, 4, 4]) == 2
     assert encode_rle([15, 15, 15, 4, 4, 4, 4, 4, 4]) == [3, 15, 6, 4]
+    assert get_decoded_length([3, 15, 6, 4]) == 9
+    assert get_decoded_length([7, 15, 7, 4]) == 14
 
 if __name__ == "__main__":
     tests()
