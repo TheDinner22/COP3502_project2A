@@ -63,6 +63,8 @@ class ConsoleGfx:
         CLEAR, CLEAR, CLEAR, CLEAR, CLEAR
         ]
 
+    # takes in a list of numbers [width, height, 0, 2, 3, 4, 5, 6, 7, 8, etc]
+    # each number represents a color
     def display_image(image_data):
         ConsoleGfx.display_image2(image_data, ConsoleGfx.default_top, ConsoleGfx.default_up_left, ConsoleGfx.default_up_right, ConsoleGfx.default_start,
                           ConsoleGfx.default_end, ConsoleGfx.default_bottom, ConsoleGfx.default_low_left, ConsoleGfx.default_low_right)
