@@ -346,8 +346,18 @@ def main():
 
         # 3. Read RLE String
         elif user_selection == 3:
-            pass
+            user_input = input("Enter an RLE string to be decoded: ")
 
+            # list of numbers [length, encoded, length, encoded, etc.]
+            rle_data = string_to_rle(user_input)
+
+            # list of numbers [12, 15, 11, etc.] where each number
+            # represents a color (except for the first two whic represent width and height
+            flat_data = decode_rle(rle_data)
+
+            # store as image
+            current_image = flat_data
+                                  
         # 4. Read RLE Hex String
         elif user_selection == 4:
             pass
