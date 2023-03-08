@@ -194,7 +194,20 @@ def to_rle_string(rle_data):
 # Translates a string in human-readable RLE format (with delimiters) into RLE byte data. (Inverse of #7) 
 # Ex: string_to_rle("15f:64") yields list [15, 15, 6, 4].
 def string_to_rle(rle_string):
-    pass
+    rle_data = []
+
+    # split the input by its delimiter
+    for chunk in rle_string.split(":"):
+        hex_encoded_data = chunk[-1]
+        decimal_length = chunk[:-1]
+
+        # append the length
+        rle_data.append(int(decimal_length))
+
+        # append the encoded data (parse it to decimal)
+        rle_data.append(hex_char_to_decimal(hex_encoded_data))
+
+    return rle_data
 
 # I copied this code from my lab4 code
 #
@@ -371,6 +384,8 @@ def tests():
     assert get_decoded_length([7, 15, 7, 4]) == 14
     assert decode_rle([3, 15, 6, 4]) == [15, 15, 15, 4, 4, 4, 4, 4, 4]
     assert string_to_data ("3f64") == [3, 15, 6, 4]
+    assert to_rle_string([15, 15, 6, 4]) == "15f:64"
+    assert string_to_rle("15f:64") == [15, 15, 6, 4]
 
     # tests from zybooks
     assert count_runs([1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]) == 25
@@ -405,8 +420,6 @@ def tests():
     assert decimal_to_hex(18) == "12"
     assert decimal_to_hex(19) == "13"
     assert decimal_to_hex(20) == "14"
-
-    assert to_rle_string([15, 15, 6, 4]) == "15f:64"
 
 if __name__ == "__main__":
     tests()
