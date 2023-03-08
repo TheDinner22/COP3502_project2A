@@ -387,7 +387,11 @@ def main():
 
         # 7. Display RLE String
         elif user_selection == 7:
-            pass
+            rle_data = encode_rle(current_image)
+
+            rle_representation = to_rle_string(rle_data)
+
+            print(f"RLE representation: {rle_representation}")
 
         # 8. Display Hex RLE Data
         elif user_selection == 8:
