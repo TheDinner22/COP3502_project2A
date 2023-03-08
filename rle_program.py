@@ -374,7 +374,12 @@ def main():
 
         # 5. Read Data Hex String
         elif user_selection == 5:
-            pass
+            user_input = input("Enter the hex string holding flat data: ")
+
+            flat_data = string_to_data(user_input)
+
+            # store as image
+            current_image = flat_data
 
         # 6. Display Image 
         elif user_selection == 6:
