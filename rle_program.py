@@ -166,7 +166,7 @@ def string_to_data(data_string):
 
     return raw_data
 
-# Translates  RLE data into  a human-readable representation.  For  each  run,  in  order,  it should  display  the  run 
+# Translates RLE data into  a human-readable representation.  For  each  run,  in  order,  it should  display  the  run 
 # length in decimal (1-2 digits); the run value in hexadecimal (1 digit); and a delimiter, ‘:’, between runs. (See 
 # examples in standalone section.) 
 # Ex: to_rle_string([15, 15, 6, 4]) yields string "15f:64". 
@@ -179,7 +179,6 @@ def string_to_rle(rle_string):
     pass
 
 # I copied this code from my lab4 code
-# TODO delete this code?
 #
 # convert a decimal number to hex
 # using acsii MAGIC!
@@ -188,6 +187,9 @@ def string_to_rle(rle_string):
 # - number is an int (positive)
 # - returns a string (hex repr. of number)
 def decimal_to_hex(number):
+    # if its 0 return '0'
+    if number == 0: return "0"
+
     hex = ""
 
     while number != 0:
@@ -362,6 +364,30 @@ def tests():
     assert encode_rle([4,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]) == [1,4,1,5,15,1,15,1,5,1]
 
     assert decode_rle([2,4,15,1,15,1,5,1,1,8,1,7]) == [4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8,7]
+
+    # tests from me!
+    assert decimal_to_hex(0) == "0"
+    assert decimal_to_hex(1) == "1"
+    assert decimal_to_hex(2) == "2"
+    assert decimal_to_hex(3) == "3"
+    assert decimal_to_hex(4) == "4"
+    assert decimal_to_hex(5) == "5"
+    assert decimal_to_hex(6) == "6"
+    assert decimal_to_hex(7) == "7"
+    assert decimal_to_hex(8) == "8"
+    assert decimal_to_hex(9) == "9"
+    assert decimal_to_hex(10) == "A"
+    assert decimal_to_hex(11) == "B"
+    assert decimal_to_hex(12) == "C"
+    assert decimal_to_hex(13) == "D"
+    assert decimal_to_hex(14) == "E"
+    assert decimal_to_hex(15) == "F"
+    assert decimal_to_hex(16) == "10"
+    assert decimal_to_hex(17) == "11"
+    assert decimal_to_hex(18) == "12"
+    assert decimal_to_hex(19) == "13"
+    assert decimal_to_hex(20) == "14"
+
 
 if __name__ == "__main__":
     tests()
