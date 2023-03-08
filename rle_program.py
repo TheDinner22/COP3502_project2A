@@ -171,7 +171,25 @@ def string_to_data(data_string):
 # examples in standalone section.) 
 # Ex: to_rle_string([15, 15, 6, 4]) yields string "15f:64". 
 def to_rle_string(rle_data):
-    pass
+    readable_str = ""
+
+    # windowed/chunked loop where each iteration has access to two elements in the list
+    for i in range(0, len(rle_data), 2):
+        run_length = rle_data[i]
+        encoded_data = rle_data[i + 1]
+
+        # add the run_length as decimal to the readable_str
+        readable_str += str(run_length)
+
+        # add the encoded_data as hex
+        readable_str += decimal_to_hex(int(encoded_data)).lower()
+
+        # add delimiter
+        readable_str += ":"
+
+    # there will be a trailing delimiter which is 
+    # not intended so return a slice which omits that
+    return readable_str[:-1]
 
 # Translates a string in human-readable RLE format (with delimiters) into RLE byte data. (Inverse of #7) 
 # Ex: string_to_rle("15f:64") yields list [15, 15, 6, 4].
@@ -388,6 +406,7 @@ def tests():
     assert decimal_to_hex(19) == "13"
     assert decimal_to_hex(20) == "14"
 
+    assert to_rle_string([15, 15, 6, 4]) == "15f:64"
 
 if __name__ == "__main__":
     tests()
