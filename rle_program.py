@@ -404,7 +404,8 @@ def main():
 
         # 9. Display Hex Flat Data
         elif user_selection == 9:
-            pass
+            print(f"Flat hex values: {to_hex_string(current_image)}")
+            
 
 # the methods I am required to implement have
 # sample inputs and outputs
