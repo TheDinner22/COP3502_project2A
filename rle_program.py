@@ -395,7 +395,12 @@ def main():
 
         # 8. Display Hex RLE Data
         elif user_selection == 8:
-            pass
+            # list of numbers [length, encoded, etc.]
+            rle_data = encode_rle(current_image)
+
+            rle_representation = to_hex_string(rle_data)
+
+            print(f"RLE hex values: {rle_representation}")
 
         # 9. Display Hex Flat Data
         elif user_selection == 9:
